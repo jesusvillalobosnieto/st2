@@ -44,10 +44,16 @@ jobs:
         # NOTE: We need to use full Python version as part of Python deps cache key otherwise
         # setup virtualenv step will fail.
         python:
+<<<<<<< HEAD
           - {version-short: '3.8', version: '3.8.18'}
           - {version-short: '3.9', version: '3.9.21'}
           - {version-short: '3.10', version: '3.10.16'}
           - {version-short: '3.11', version: '3.11.11'}
+=======
+          - {version-short: '3.10', version: '3.10.22'}
+          - {version-short: '3.11', version: '3.11.17'}
+          - {version-short: '3.12', version: '3.12.15'}
+>>>>>>> 97a6b6e80 (ci: bump CI Python patch versions)
         make:
           - name: 'Microbenchmarks'
             task: 'micro-benchmarks'

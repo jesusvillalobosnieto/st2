@@ -46,7 +46,7 @@ jobs:
         # setup virtualenv step will fail.
         python:
           # Pants itself uses only 3.11
-          - {version-short: '3.11', version: '3.11.11'}
+          - {version-short: '3.11', version: '3.11.17'}
 
     services:
       mongo:
@@ -130,8 +130,8 @@ jobs:
         python:
           - {version-short: '3.8', version: '3.8.18'}
           - {version-short: '3.9', version: '3.9.21'}
-          - {version-short: '3.10', version: '3.10.16'}
-          - {version-short: '3.11', version: '3.11.11'}
+          - {version-short: '3.10', version: '3.10.22'}
+          - {version-short: '3.11', version: '3.11.17'}
         shard:
           # Sharding of tests is handled by pants:
           # https://www.pantsbuild.org/stable/docs/using-pants/advanced-target-selection#sharding-the-input-targets
@@ -227,8 +227,8 @@ jobs:
         python:
           - {version-short: '3.8', version: '3.8.18'}
           - {version-short: '3.9', version: '3.9.21'}
-          - {version-short: '3.10', version: '3.10.16'}
-          - {version-short: '3.11', version: '3.11.11'}
+          - {version-short: '3.10', version: '3.10.22'}
+          - {version-short: '3.11', version: '3.11.17'}
 
     services:
       mongo:
@@ -316,8 +316,8 @@ jobs:
         python:
           - {version-short: '3.8', version: '3.8.18'}
           - {version-short: '3.9', version: '3.9.21'}
-          - {version-short: '3.10', version: '3.10.16'}
-          - {version-short: '3.11', version: '3.11.11'}
+          - {version-short: '3.10', version: '3.10.22'}
+          - {version-short: '3.11', version: '3.11.17'}
 
     services:
       mongo:
@@ -437,8 +437,8 @@ jobs:
         python:
           - {version-short: '3.8', version: '3.8.18'}
           - {version-short: '3.9', version: '3.9.21'}
-          - {version-short: '3.10', version: '3.10.16'}
-          - {version-short: '3.11', version: '3.11.11'}
+          - {version-short: '3.10', version: '3.10.22'}
+          - {version-short: '3.11', version: '3.11.17'}
 
     services:
       mongo:
@@ -557,8 +557,8 @@ jobs:
         python:
           - {version-short: '3.8', version: '3.8.18'}
           - {version-short: '3.9', version: '3.9.21'}
-          - {version-short: '3.10', version: '3.10.16'}
-          - {version-short: '3.11', version: '3.11.11'}
+          - {version-short: '3.10', version: '3.10.22'}
+          - {version-short: '3.11', version: '3.11.17'}
 
     services:
       mongo:
