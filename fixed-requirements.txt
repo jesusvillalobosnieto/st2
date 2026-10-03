@@ -6,6 +6,7 @@
 # - https://github.com/StackStorm/st2-rbac-backend
 # ----------------------------------------------------------------------
 # Note: amqp is used by kombu
+<<<<<<< HEAD
 amqp==5.3.1
 apscheduler==3.11.0
 chardet==5.2.0
@@ -13,6 +14,14 @@ cffi==1.17.1
 cryptography==43.0.3
 eventlet==0.39.1
 flex==6.14.1
+=======
+amqp==5.4.0
+apscheduler==3.11.3
+chardet==7.6.0
+cffi==2.1.1
+cryptography==50.0.2
+eventlet==0.41.2
+>>>>>>> def231cfc (deps: bump cryptography to 50.0.2 and pyOpenSSL to 26.4.0)
 # Note: installs gitpython==3.1.37 (security fixed) under py3.8 and gitpython==3.1.18 (latest available, vulnerable) under py3.6
 # TODO: Pin to 3.1.37 or higher after dropping python3.6 support
 gitpython==3.1.45
@@ -40,8 +49,8 @@ pymongo==4.6.3
 pyparsing==3.1.4
 zstandard==0.23.0
 # pyOpenSSL is a candidate for removal and is not in lockfiles/st2.lock since it is not used.
-# pyOpenSSL 25.1.0 supports cryptography>=41.0.5,<46
-pyOpenSSL<25.2
+# pyOpenSSL 26.4.0 supports cryptography>=49.0.0,<51
+pyOpenSSL==26.4.0
 # 202403: switch from python-editor to editor for py3.10 support
 editor==1.6.6
 # editor dependency, required here for inclusion in st2client setup.py
