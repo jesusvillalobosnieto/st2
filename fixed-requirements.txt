@@ -53,7 +53,7 @@ pyyaml==6.0.3
 redis==6.1.1
 requests==2.32.4
 # urllib3 is a transitive dep
-urllib3==2.2.3
+urllib3==2.8.0
 retrying==1.4.2
 routes==2.5.1
 semver==3.0.4
@@ -75,7 +75,7 @@ tooz==6.3.0
 virtualenv==20.34.0
 # This setuptools version number is in the Makefile, but CircleCI builds are pulling a version
 # that is incompatible with our logshipper fork.
-setuptools<78
+setuptools==83.0.0
 webob==1.8.9
 webtest==3.0.1
 zake==0.2.2
@@ -83,7 +83,7 @@ zake==0.2.2
 bcrypt==5.0.0
 jinja2==3.1.6
 mock==5.2.0
-pytest==7.0.1
+pytest==9.0.3
 psutil==7.1.0
 python-dateutil==2.9.0.post0
 python-statsd==2.1.0
