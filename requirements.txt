@@ -50,7 +50,7 @@ pynacl==1.6.0
 pyparsing==3.1.4
 pyrabbit
 pysocks
-pytest==9.0.3
+pytest==9.1.1
 python-dateutil==2.9.0.post0
 python-json-logger
 python-statsd==2.1.0
@@ -62,7 +62,7 @@ requests==2.32.4
 retrying==1.4.2
 routes==2.5.1
 semver==3.0.4
-setuptools==83.0.0
+setuptools==84.0.0
 simplejson
 six==1.17.0
 sseclient-py==1.8.0

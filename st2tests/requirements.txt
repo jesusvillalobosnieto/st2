@@ -9,5 +9,5 @@ RandomWords
 mock==5.2.0
 psutil==7.1.0
 pyrabbit
-pytest==9.0.3
+pytest==9.1.1
 webtest==3.0.1
