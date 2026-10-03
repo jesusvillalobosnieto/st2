@@ -37,7 +37,8 @@ orquesta @ git+https://github.com/StackStorm/orquesta.git@5ba1467614b2ef8b4709b2
 # Historical reference: https://github.com/StackStorm/st2/issues/4160#issuecomment-394386433
 # Relaxed pinning for py3.10 support.
 oslo.config
-paramiko
+# paramiko 4.0 removed DSA (DSS) key support; 5.0 removed SHA-1 algorithms.
+paramiko>=5.0.0,<6.0.0
 # we use pip at runtime
 pip
 # prance is used by st2-validate-api-spec to validate the openapi spec

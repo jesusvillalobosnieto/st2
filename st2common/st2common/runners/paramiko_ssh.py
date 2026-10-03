@@ -113,8 +113,8 @@ class ParamikoSSHClient(object):
         - The key passed in (if key is provided)
         - Any key we can find through an SSH agent (only if no password and
           key is provided)
-        - Any "id_rsa" or "id_dsa" key discoverable in ~/.ssh/ (only if no
-          password and key is provided)
+        - Any "id_rsa", "id_ecdsa" or "id_ed25519" key discoverable in ~/.ssh/
+          (only if no password and key is provided)
         - Plain username/password auth, if a password was given (if password is
           provided)
         """
@@ -633,7 +633,7 @@ class ParamikoSSHClient(object):
         Try to detect private key type and return paramiko.PKey object.
         """
 
-        for cls in [paramiko.RSAKey, paramiko.DSSKey, paramiko.ECDSAKey]:
+        for cls in [paramiko.RSAKey, paramiko.ECDSAKey]:
             try:
                 key = cls.from_private_key(StringIO(key_material), password=passphrase)
             except paramiko.ssh_exception.SSHException:
@@ -837,7 +837,7 @@ class ParamikoSSHClient(object):
 
     @staticmethod
     def _is_key_file_needs_passphrase(file):
-        for cls in [paramiko.RSAKey, paramiko.DSSKey, paramiko.ECDSAKey]:
+        for cls in [paramiko.RSAKey, paramiko.ECDSAKey]:
             try:
                 cls.from_private_key_file(file, password=None)
             except paramiko.ssh_exception.PasswordRequiredException:
