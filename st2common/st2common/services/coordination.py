@@ -47,7 +47,7 @@ class NoOpLock(locking.Lock):
     def __init__(self, name="noop"):
         super(NoOpLock, self).__init__(name=name)
 
-    def acquire(self, blocking=True):
+    def acquire(self, blocking=True, shared=False, timeout=None):
         return True
 
     def release(self):
