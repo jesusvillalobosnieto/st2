@@ -111,4 +111,9 @@ def test_pickled_object_compression_publish(
             payload=live_action_db, exchange=exchange, compression=compression
         )
 
-    benchmark.pedantic(run_benchmark, iterations=5, rounds=5)
+    try:
+        benchmark.pedantic(run_benchmark, iterations=5, rounds=5)
+    finally:
+        # Close the connections, otherwise they are only closed by the garbage collector
+        # at an unpredictable point later in the session.
+        publisher.pool.force_close_all()
