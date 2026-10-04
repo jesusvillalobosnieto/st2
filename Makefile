@@ -173,8 +173,9 @@ install-runners:
 	@echo ""
 	@echo "================== INSTALL RUNNERS ===================="
 	@echo ""
-	# NOTE: We use xargs to speed things up by installing runners in parallel
-	echo -e "$(COMPONENTS_RUNNERS)" | tr -d "\n" | xargs -P $(XARGS_CONCURRENCY) -d " " -n1 -i sh -c ". $(VIRTUALENV_DIR)/bin/activate; cd $$(pwd)/{} ; python setup.py develop --no-deps"
+	# NOTE: Runners are installed one at a time. In parallel, a pip build subprocess can read the
+	# __editable__ .pth file that another install is still writing, and fail to start.
+	echo -e "$(COMPONENTS_RUNNERS)" | tr -d "\n" | xargs -P 1 -d " " -n1 -i sh -c ". $(VIRTUALENV_DIR)/bin/activate; cd $$(pwd)/{} ; python setup.py develop --no-deps"
 	#@for component in $(COMPONENTS_RUNNERS); do \
 	#	echo "==========================================================="; \
 	#	echo "Installing runner:" $$component; \
@@ -182,19 +183,22 @@ install-runners:
 	#	#(. $(VIRTUALENV_DIR)/bin/activate; cd $$component; python setup.py develop --no-deps); \
 	#done
 
+
 .PHONY: install-mock-runners
 install-mock-runners:
 	@echo ""
 	@echo "================== INSTALL MOCK RUNNERS ===================="
 	@echo ""
-	# NOTE: We use xargs to speed things up by installing runners in parallel
-	echo -e "$(MOCK_RUNNERS)" | tr -d "\n" | xargs -P $(XARGS_CONCURRENCY) -d " " -n1 -i sh -c ". $(VIRTUALENV_DIR)/bin/activate; cd $$(pwd)/{} ; python setup.py develop --no-deps"
+	# NOTE: Runners are installed one at a time. In parallel, a pip build subprocess can read the
+	# __editable__ .pth file that another install is still writing, and fail to start.
+	echo -e "$(MOCK_RUNNERS)" | tr -d "\n" | xargs -P 1 -d " " -n1 -i sh -c ". $(VIRTUALENV_DIR)/bin/activate; cd $$(pwd)/{} ; python setup.py develop --no-deps"
 	#@for component in $(MOCK_RUNNERS); do \
 	#	echo "==========================================================="; \
 	#	echo "Installing mock runner:" $$component; \
 	#	echo "==========================================================="; \
 	#	(. $(VIRTUALENV_DIR)/bin/activate; cd $$component; python setup.py develop --no-deps); \
 	#done
+
 
 .PHONY: check-requirements
 .check-requirements:
