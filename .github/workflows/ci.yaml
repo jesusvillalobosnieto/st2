@@ -55,16 +55,10 @@ jobs:
         # NOTE: We need to use full Python version as part of Python deps cache key otherwise
         # setup virtualenv step will fail.
         python:
-<<<<<<< HEAD
           - {version-short: '3.8', version: '3.8.18'}
           - {version-short: '3.9', version: '3.9.21'}
-          - {version-short: '3.10', version: '3.10.16'}
-          - {version-short: '3.11', version: '3.11.11'}
-=======
           - {version-short: '3.10', version: '3.10.22'}
           - {version-short: '3.11', version: '3.11.17'}
-          - {version-short: '3.12', version: '3.12.15'}
->>>>>>> 97a6b6e80 (ci: bump CI Python patch versions)
         make:
           - name: 'Lint Checks (black, flake8, etc.)'
             task: 'ci-checks'
@@ -123,11 +117,7 @@ jobs:
       fail-fast: false
       matrix:
         python:
-<<<<<<< HEAD
           - {version-short: '3.8', version: '3.8.18'}
-=======
-          - {version-short: '3.10', version: '3.10.22'}
->>>>>>> 97a6b6e80 (ci: bump CI Python patch versions)
     services:
       mongo:
         image: mongo:7.0
@@ -145,11 +135,7 @@ jobs:
 
       redis:
         # Docker Hub image
-<<<<<<< HEAD
-        image: redis:8.0
-=======
         image: redis:8.10
->>>>>>> 5911980c0 (ci: bump redis service image 8.6 -> 8.10)
         # Set health checks to wait until redis has started
         options: >-
           --name "redis"
@@ -286,16 +272,10 @@ jobs:
         # NOTE: To speed the CI run, we split unit and integration tests into multiple jobs where
         # each job runs subset of tests.
         python:
-<<<<<<< HEAD
           - {version-short: '3.8', version: '3.8.18'}
           - {version-short: '3.9', version: '3.9.21'}
-          - {version-short: '3.10', version: '3.10.16'}
-          - {version-short: '3.11', version: '3.11.11'}
-=======
           - {version-short: '3.10', version: '3.10.22'}
           - {version-short: '3.11', version: '3.11.17'}
-          - {version-short: '3.12', version: '3.12.15'}
->>>>>>> 97a6b6e80 (ci: bump CI Python patch versions)
         make:
           - name: 'Unit Tests (chunk 1)'
             task: 'ci-unit'
@@ -315,11 +295,7 @@ jobs:
           - 27017:27017
       redis:
         # Docker Hub image
-<<<<<<< HEAD
-        image: redis:8.0
-=======
         image: redis:8.10
->>>>>>> 5911980c0 (ci: bump redis service image 8.6 -> 8.10)
         # Set health checks to wait until redis has started
         options: >-
           --name "redis"
@@ -451,16 +427,10 @@ jobs:
         # NOTE: To speed-up the CI run, we split unit and integration tests into multiple jobs where
         # each job runs subset of tests.
         python:
-<<<<<<< HEAD
           - {version-short: '3.8', version: '3.8.18'}
           - {version-short: '3.9', version: '3.9.21'}
-          - {version-short: '3.10', version: '3.10.16'}
-          - {version-short: '3.11', version: '3.11.11'}
-=======
           - {version-short: '3.10', version: '3.10.22'}
           - {version-short: '3.11', version: '3.11.17'}
-          - {version-short: '3.12', version: '3.12.15'}
->>>>>>> 97a6b6e80 (ci: bump CI Python patch versions)
         make:
           # We run pack tests here since they rely on some integration tests set
           # up (aka stanley user being present, etc.)
@@ -512,11 +482,7 @@ jobs:
 
       redis:
         # Docker Hub image
-<<<<<<< HEAD
-        image: redis:8.0
-=======
         image: redis:8.10
->>>>>>> 5911980c0 (ci: bump redis service image 8.6 -> 8.10)
         # Set health checks to wait until redis has started
         options: >-
           --name "redis"
