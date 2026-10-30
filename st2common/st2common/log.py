@@ -319,7 +319,15 @@ def ignore_lib2to3_log_messages():
     Work around to ignore "Generating grammar tables from" log messages which are logged under
     INFO by default by libraries such as networkx which use 2to3.
     """
-    import lib2to3.pgen2.driver
+    try:
+        import lib2to3.pgen2.driver
+    except ImportError:
+        # NOTE: lib2to3 has been removed from the standard library in Python 3.13 and some
+        # distributions (e.g. Debian / Ubuntu) also don't ship it as part of the core
+        # python3 package (it lives in a separate "python3-lib2to3" package which may not
+        # be installed). In that case there is simply nothing to silence, so we silently
+        # ignore it instead of crashing the whole service on startup.
+        return
 
     class MockLoggingModule(object):
         def getLogger(self, *args, **kwargs):
